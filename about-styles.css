@@ -1,0 +1,93 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    background-color: rgb(235, 235, 229);
+    text-align: center;
+}
+
+/* .image-wrapper {
+    display: inline-block;
+    margin: 20px auto;
+} */
+
+img {
+    width: 700px;
+    display: block;
+    margin: 20px auto;
+}
+
+.spacer {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Fixed menu icon positioning */
+.menu-icon {
+    position: absolute;
+    top: 0px; /* Ensure it's aligned with the top of the page */
+    left: 20px; /* Align to the top-left corner */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    cursor: pointer;
+    animation: rotate 4s linear infinite; /* Add rotation */
+    padding: 0px; /* Add some padding to ensure it doesn't interfere with other elements */
+}
+
+.menu-icon img {
+    width: 80px; /* Adjust the size of the icon */
+    height: auto; /* Keep aspect ratio */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 80px; /* Adjust based on menu icon size */
+    left: 20px;
+    background: transparent;
+    border-radius: 5px;
+    padding: 15px;
+    z-index: 999; /* Ensure it's clickable above other elements */
+}
+
+.dropdown-menu a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 5px;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.dropdown-menu a:hover {
+    color: rgba(255, 255, 255, 0);
+    font-weight: bold;
+}
+
+/* Keyframes for rotating icon */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+aside {
+    width: 70%;
+    float: center;
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    padding: 1px;
+    margin-top: 5px;
+    margin-left: 467px;
+    margin-right: 46px;
+    height: 120px;
+    text-align: left;
+    font-family: 'Courier New',monospace;
+    font-size:90%
+  }
