@@ -8,7 +8,7 @@ body, html {
 }
 
 .background {
-    background-image: url('ringbackground.JPG');
+    background-image: url('ringbackground.jpg');
     background-size: cover;
     background-position: center top;
     width: 100%;
