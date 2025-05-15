@@ -1,67 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vessel for a worm</title>
-    <link rel="stylesheet" href="stylesvessel.css">
-    <link rel="icon" href="menuicon.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vessel for a worm</title>
+  <link rel="stylesheet" href="stylesvessel.css">
+  <link rel="icon" href="menuicon.png" type="image/png">
 </head>
 <body>
-    
-    <div class="background">
-        <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menuicon.png" alt="Menu Icon">
-        </div>
 
+  <!-- Load Menu from menu.html -->
+  <div id="menu"></div>
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu').innerHTML = data;
+      });
+  </script>
 
-        <br><br><br><br><br><br>
-<aside> 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        Vessel for a Worm <br> <br>
-Found insulation foam board, tape, plaster, acrylic paint, baking soda, water, found tile, Loxechinus albus (sea urchin), Aulacomya atra (mussel), bread clip, silver coin, clay, serpentinite, coral, Chrysocolla, quartz, cowrie shells, Veneridae (Venus clams), Murex Trapa, bull horn ring, sea glass, strombidae (true conchs), Architectonica Perspectiva (Sundial Shell), Amazonite, blue Agate, Rhodonite, unidentified shells and stones.
-<br> <be> 2022 <br> <br> <br>
-
-Vessel for a Worm is a playful exploration of installation as self-portraiture, distilling my identity into a vessel designed to house a worm, recalling the time I hosted a botfly larva in my scalp. Surrounding this central narrative is a collection of objects dating back to 2002, each preserving a piece of my memory.
+  <div class="background">
+    <br><br><br><br><br><br>
+    <aside> 
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      Vessel for a Worm <br><br>
+      Found insulation foam board, tape, plaster, acrylic paint, baking soda, water, found tile, Loxechinus albus (sea urchin), Aulacomya atra (mussel), bread clip, silver coin, clay, serpentinite, coral, Chrysocolla, quartz, cowrie shells, Veneridae (Venus clams), Murex Trapa, bull horn ring, sea glass, strombidae (true conchs), Architectonica Perspectiva (Sundial Shell), Amazonite, blue Agate, Rhodonite, unidentified shells and stones.  
+      <br><br> 2022 <br><br><br>
+      Vessel for a Worm is a playful exploration of installation as self-portraiture, distilling my identity into a vessel designed to house a worm, recalling the time I hosted a botfly larva in my scalp. Surrounding this central narrative is a collection of objects dating back to 2002, each preserving a piece of my memory.
     </aside>
+  </div>
 
-
-        
-        
-        
-        <!-- <img src="../vessel.web/paintingimages/paint4-01.png" style="width:300px;"> -->
-
-        <div class="dropdown-menu" id="dropdownMenu">
-            <br>
-            <a href="about.html">About</a>
-      <a href="https://www.instagram.com/qoo.ma/" target="_blank" rel="noopener noreferrer">@qoo.ma</a>
-            <br>  <em>* Paint</em> <br>
-            <a href="heridas.html">Heridas</a>
-            <a href="coming.html">Toda La fruta En mi casa</a>
-            <br>  <em>* Collage</em> <br>
-            <a href="tijeras.html"> Tijeras ✂</a>
-            <br>  <em>* Installation</em> <br>
-            <a href="guerra.html">Guerra Avisada No mata</a>
-            <a href="vesselforaworm.html">Vessel for a Worm</a>
-            <br>  <em>* wood</em> <br>
-            <a href="coming.html">Unsettled Dust</a>
-        
-
-            <br>  <em>* Photography</em> <br>
-
-            <div class="photo-logs">
-                <a href="#" onclick="toggleSubmenu(event)">Photo Logs</a>
-                <div class="submenu" id="photoLogsSubmenu">
-                    <a href="coming.html">Toronto</a>
-                    <a href="tumbes.html">Tumbes</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    
-    <script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
