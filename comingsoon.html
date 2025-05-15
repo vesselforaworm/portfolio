@@ -8,27 +8,29 @@
   <link rel="icon" href="menuicon.png" type="image/png" />
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       background: white;
       font-family: monospace, 'Courier New', monospace;
-      font-size: 16px; /* typical text size */
-      font-weight: normal;
+      font-size: 16px;
       overflow: hidden;
+    }
+
+    .content {
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    /* Container to center the bouncing texts and limit their area */
     #bouncing-container {
       position: relative;
       width: 600px;
       height: 200px;
-      border: none; /* or add a subtle border if you want */
       overflow: hidden;
     }
 
-    /* Bouncing text style matches page text */
     .bouncing-text {
       position: absolute;
       font-size: 16px;
@@ -36,60 +38,82 @@
       color: black;
       white-space: nowrap;
       user-select: none;
-      cursor: default;
-      text-shadow: none;
     }
   </style>
 </head>
 <body>
+  <!-- Menu Icon (same as your other pages) -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menuicon.png" alt="Menu Icon" />
+  </div>
 
-  <!-- We do NOT include menu HTML here, just link galleries.css for styles -->
+  <!-- Bouncing Text Container -->
+  <div class="content">
+    <div id="bouncing-container"></div>
+  </div>
 
-  <div id="bouncing-container"></div>
+  <!-- Dropdown Menu (copy-pasted from other pages) -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <br>
+    <a href="about.html">About</a>
+    <a href="https://www.instagram.com/qoo.ma/" target="_blank" rel="noopener noreferrer">@qoo.ma</a>
+    <br> <em>* Paint</em> <br>
+    <a href="heridas.html">Heridas</a>
+    <a href="coming.html">Toda La fruta En mi casa</a>
+    <br> <em>* Collage</em> <br>
+    <a href="tijeras.html"> Tijeras ✂</a>
+    <br> <em>* Installation</em> <br>
+    <a href="guerra.html">Guerra Avisada No mata</a>
+    <a href="vesselforaworm.html">Vessel for a Worm</a>
+    <br> <em>* wood</em> <br>
+    <a href="coming.html">Unsettled Dust</a>
+    <br> <em>* Photography</em> <br>
+    <div class="photo-logs">
+      <a href="#" onclick="toggleSubmenu(event)">Photo Logs</a>
+      <div class="submenu" id="photoLogsSubmenu">
+        <a href="coming.html">Toronto</a>
+        <a href="tumbes.html">Tumbes</a>
+      </div>
+    </div>
+  </div>
 
+  <!-- Bouncing Text Script -->
   <script>
     const container = document.getElementById('bouncing-container');
-    const textsCount = 10; // fewer to keep it tidy in smaller area
+    const textsCount = 10;
     const texts = [];
 
     function random(min, max) {
       return Math.random() * (max - min) + min;
     }
 
-    // Create bouncing text elements inside container box
     for (let i = 0; i < textsCount; i++) {
       const span = document.createElement('span');
       span.className = 'bouncing-text';
       span.textContent = 'coming soon';
       container.appendChild(span);
 
-      // Random initial position inside container boundaries
       let x = random(0, container.clientWidth - 80);
       let y = random(0, container.clientHeight - 20);
-
-      // Random velocity between 1 and 3 px per frame (direction randomized)
       let vx = random(1, 3) * (Math.random() < 0.5 ? -1 : 1);
       let vy = random(1, 3) * (Math.random() < 0.5 ? -1 : 1);
 
       texts.push({ el: span, x, y, vx, vy });
     }
 
-    // Animate bounce within container
     function animate() {
       texts.forEach(obj => {
         obj.x += obj.vx;
         obj.y += obj.vy;
 
-        // Bounce horizontally within container
         if (obj.x < 0 || obj.x > container.clientWidth - obj.el.offsetWidth) {
           obj.vx *= -1;
-          obj.x = Math.min(Math.max(obj.x, 0), container.clientWidth - obj.el.offsetWidth);
+          obj.x = Math.max(0, Math.min(obj.x, container.clientWidth - obj.el.offsetWidth));
         }
 
-        // Bounce vertically within container
         if (obj.y < 0 || obj.y > container.clientHeight - obj.el.offsetHeight) {
           obj.vy *= -1;
-          obj.y = Math.min(Math.max(obj.y, 0), container.clientHeight - obj.el.offsetHeight);
+          obj.y = Math.max(0, Math.min(obj.y, container.clientHeight - obj.el.offsetHeight));
         }
 
         obj.el.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
@@ -99,6 +123,18 @@
     }
 
     animate();
+
+    // Toggle menu script
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function toggleSubmenu(event) {
+      event.preventDefault();
+      const submenu = document.getElementById('photoLogsSubmenu');
+      submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+    }
   </script>
 </body>
 </html>
