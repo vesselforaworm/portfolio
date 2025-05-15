@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vessel for a Worm</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="menuicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vessel for a worm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="menuicon.png" type="image/png">
 </head>
 <body>
+    
+    <div class="background">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menuicon.png" alt="Menu Icon">
+        </div>
 
-  <!-- Load Menu from menu.html -->
-  <div id="menu"></div>
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu').innerHTML = data;
-      });
-  </script>
 
-  <div class="background">
-    <!-- Page-specific content goes here -->
-  </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <br>
+            <a href="about.html">About</a>
+       <a href="https://www.instagram.com/qoo.ma/" target="_blank" rel="noopener noreferrer">@qoo.ma</a>
+     <a href="https://www.instagram.com/vesselforaworm/" target="_blank" rel="noopener noreferrer">@vesselforaworm</a>
+        
+            
+            <br>  <em>* Paint</em> <br>
+            <a href="lisura.html">Lisura Derramada/Spilled Smooth</a>
+            <a href="pajarada.html">Pajarada/Fish in The Water</a>
+           
+            <br>  <em>* Collage</em> <br>
+            <a href="tijeras.html"> Tijeras ✂</a>
+            <br>  <em>* Installation</em> <br>
+            <a href="guerra.html">Guerra Avisada No mata</a>
+            <a href="vesselforaworm.html">Vessel for a Worm</a>
+            
+            <br>  <em>* Sculpture</em> <br>
+            <a href="ceiba.html">Ceiba</a>
+        
 
-  <script src="scripts.js"></script>
+            <br>  <em>* Photo</em> <br>
+
+            <div class="photo-logs">
+                <a href="#" onclick="toggleSubmenu(event)">Photo Logs</a>
+                <div class="submenu" id="photoLogsSubmenu">
+                    <a href="coming.html">Toronto</a>
+                    <a href="tumbes.html">Tumbes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
