@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon</title>
+  <link rel="stylesheet" href="galleries.css" />
+  <link rel="icon" href="menuicon.png" type="image/png" />
+  <style>
+    body, html {
+      margin: 0; padding: 0; 
+      height: 100%; 
+      overflow: hidden;
+      background: white;
+      font-family: monospace, 'Courier New', monospace;
+      position: relative;
+    }
+
+    /* Position menu icon top-left */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      animation: spin 5s linear infinite;
+      z-index: 10000;
+    }
+    .menu-icon img {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Dropdown menu styling from galleries.css assumed */
+
+    /* Container for bouncing texts */
+    #bouncing-container {
+      position: fixed;
+      top: 0; left: 0; 
+      width: 100vw; 
+      height: 100vh;
+      pointer-events: none; /* clicks go through to menu */
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    /* Each bouncing text style */
+    .bouncing-text {
+      position: absolute;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: black;
+      user-select: none;
+      white-space: nowrap;
+      /* Slight text shadow for contrast */
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menuicon.png" alt="Menu Icon" />
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <br />
+    <a href="about.html">About</a>
+    <a href="https://www.instagram.com/qoo.ma/" target="_blank" rel="noopener noreferrer">@qoo.ma</a>
+    <br />
+    <em>* Paint</em>
+    <br />
+    <a href="heridas.html">Heridas</a>
+    <a href="coming.html">Toda La fruta En mi casa</a>
+    <br />
+    <em>* Collage</em>
+    <br />
+    <a href="tijeras.html"> Tijeras ✂</a>
+    <br />
+    <em>* Installation</em>
+    <br />
+    <a href="guerra.html">Guerra Avisada No mata</a>
+    <a href="vesselforaworm.html">Vessel for a Worm</a>
+    <br />
+    <em>* wood</em>
+    <br />
+    <a href="coming.html">Unsettled Dust</a>
+
+    <br />
+    <em>* Photography</em>
+    <br />
+
+    <div class="photo-logs">
+      <a href="#" onclick="toggleSubmenu(event)">Photo Logs</a>
+      <div class="submenu" id="photoLogsSubmenu">
+        <a href="coming.html">Toronto</a>
+        <a href="tumbes.html">Tumbes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for bouncing texts -->
+  <div id="bouncing-container"></div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    function toggleSubmenu(e) {
+      e.preventDefault();
+      const submenu = e.target.nextElementSibling;
+      if (submenu.style.display === 'block') submenu.style.display = 'none';
+      else submenu.style.display = 'block';
+    }
+
+    // Create multiple bouncing "Coming Soon" texts
+    const container = document.getElementById('bouncing-container');
+    const textsCount = 15; // Number of bouncing texts
+    const texts = [];
+
+    // Utility: random number between min and max
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // Create and initialize each text span
+    for (let i = 0; i < textsCount; i++) {
+      const span = document.createElement('span');
+      span.className = 'bouncing-text';
+      span.textContent = 'coming soon';
+      container.appendChild(span);
+
+      // Random initial position inside viewport (leaving margin)
+      let x = random(50, window.innerWidth - 200);
+      let y = random(50, window.innerHeight - 50);
+      // Random velocity px per frame (-2 to 2, avoid too slow)
+      let vx = random(1.5, 3) * (Math.random() < 0.5 ? -1 : 1);
+      let vy = random(1.5, 3) * (Math.random() < 0.5 ? -1 : 1);
+
+      texts.push({el: span, x, y, vx, vy});
+    }
+
+    // Animation loop
+    function animate() {
+      texts.forEach(obj => {
+        obj.x += obj.vx;
+        obj.y += obj.vy;
+
+        // Bounce off viewport edges
+        if (obj.x < 0 || obj.x > window.innerWidth - obj.el.offsetWidth) {
+          obj.vx *= -1;
+          obj.x = Math.min(Math.max(obj.x, 0), window.innerWidth - obj.el.offsetWidth);
+        }
+        if (obj.y < 0 || obj.y > window.innerHeight - obj.el.offsetHeight) {
+          obj.vy *= -1;
+          obj.y = Math.min(Math.max(obj.y, 0), window.innerHeight - obj.el.offsetHeight);
+        }
+
+        obj.el.style.transform = `translate(${obj.x}px, ${obj.y}px)`;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
