@@ -41,10 +41,15 @@
   </style>
 </head>
 <body>
-  <!-- Menu Icon (same as your other pages) -->
-  <div class="menu-icon" onclick="toggleMenu()">
-    <img src="menuicon.png" alt="Menu Icon" />
-  </div>
+  <!-- Menu open -->
+   <div id="menu"></div>
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu').innerHTML = data;
+      });
+  </script>
 
   <!-- Bouncing Text Container -->
   <div class="content">
