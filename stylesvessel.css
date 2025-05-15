@@ -34,8 +34,8 @@ body, html {
     position: absolute;
     top: 80px;
     left: 20px;
-    background: rgba(255, 255, 255, 0.9); /* better contrast */
-    border-radius: 5px;
+    /*background: rgba(255, 255, 255, 0.9); /* better contrast */ */
+    /*border-radius: 5px;*/
     padding: 10px;
     z-index: 9999; /* force it to appear on top */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
