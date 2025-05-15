@@ -34,13 +34,10 @@ body, html {
     position: absolute;
     top: 80px;
     left: 20px;
-    /*background: rgba(255, 255, 255, 0.9); /* better contrast */ */
-    /*border-radius: 5px;*/
+    background: transparent;
+    border-radius: 5px;
     padding: 10px;
-    z-index: 9999; /* force it to appear on top */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .dropdown-menu a {
     display: block;
@@ -50,7 +47,6 @@ body, html {
     padding: 5px;
     transition: color 0.3s, font-weight 0.3s;
 }
-
 
 .dropdown-menu a:hover {
     color: white;
