@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paintings</title>
+  <link rel="stylesheet" href="galleries.css">
+  <link rel="icon" href="menuicon.png" type="image/png">
+</head>
+<body>
+  <!-- Load Menu from menu.html -->
+  <div id="menu"></div>
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu').innerHTML = data;
+      });
+  </script>
+
+  <div class="image-wrapper">
+    <div class="spacer"></div>
+    <img src="IMG_2681_jpg.jpg" alt=" " style="width:450px;">
+    <aside>
+      <eml>Toro Mata</eml><br>
+      24" x 36" <br>
+      Acrylic & Oil on Wood <br>
+      2025 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+
+    <img src="IMG_9271.jpg" alt=" " style="width:1100px;">
+    <aside>
+      <eml>Sana Sana</eml><br>
+      72" x 48" <br>
+      Acrylic & Oil on Wood <br>
+      2024 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+
+    <img src="paint1.jpg" alt=" " style="width:500px;">
+    <aside>
+      <eml>La Pajarada</eml><br>
+      48" x 48" <br>
+      Acrylic & Oil on Wood <br>
+      2024 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+    <img src="1closeup.jpg" style="width:300px;">
+    <div class="spacer"></div><div class="spacer"></div>
+    <img src="paint2jpg.jpg" alt="painting1" style="width:500px;">
+    <aside>
+      <eml>Hangman</eml><br>
+      48" x 48" <br>
+      Acrylic & Oil on Wood <br>
+      2023 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+    <img src="paint3.JPG" alt="painting1" style="width:500px;">
+    <aside>
+      <eml>Pataflaca</eml><br>
+      48" x 48" <br>
+      Acrylic & Oil on Wood <br>
+      2024 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+    <img src="paint4-02.png" alt="painting1" style="width:500px;">
+    <aside>
+      <eml>Bufeo Colorado</eml><br>
+      18" x 24" <br>
+      Acrylic & Oil on Wood <br>
+      2022 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+    <img src="paint5.jpg" alt="painting1" style="width:500px;">
+    <aside>
+      <eml>untitled</eml><br>
+      12" x 12"<br>
+      Pencil & Dye on Wood Panel<br>
+      2024 <br><br>
+    </aside>
+
+    <div class="spacer"></div><div class="spacer"></div>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="background">
+    <a href="index.html"> HOME</a>
+  </div>
+
+  <script src="slideshow.js"></script>
+</body>
+</html>
